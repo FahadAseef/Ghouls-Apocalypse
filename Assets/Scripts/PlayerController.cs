@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
-    [SerializeField] float moveSpeed = 5f;
-    private float jumpForce = 4f;
-    private float gravity = 12f;
-    private float verticalVelocity;
+    //[SerializeField] float moveSpeed = 5f;
+    //private float jumpForce = 4f;
+    //private float gravity = 12f;
+    //private float verticalVelocity;
     private float speed = 7f;
     private int desiredLine = 1; // 0 = left , 1 = midddle , 2 = right 
     private const float LANE_DISTANCE = 3f; 
