@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         PlayerMovement();
-        //JumpFN();
+    
     }
 
     private void PlayerMovement()
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
 
         desiredLine += goingRight ? 1 : -1;
         desiredLine = Mathf.Clamp(desiredLine,0,2);
-        
+
     }
 
     private bool isGrounded()
@@ -126,13 +126,20 @@ public class PlayerController : MonoBehaviour
         Ray groundRay = new Ray(
             new Vector3(
                 controller.bounds.center.x,
-                (controller.bounds.center.y - controller.bounds.extents.y)+0.2f,
+                (controller.bounds.center.y - controller.bounds.extents.y) + 0.2f,
             controller.bounds.center.z),
             Vector3.down);
 
         return Physics.Raycast(groundRay, 0.2f + 0.1f);
 
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            Destroy(other.gameObject);
+        }
     }
 
 
